@@ -1,0 +1,34 @@
+"Input"
+airtemp = eval(input("What is the air temperature?"))
+airunit = (input("What is the unit you used?(K,C,F)"))
+steamtemp = eval(input("What is the steam temperature?"))
+steamunit = (input("What is the unit you used?(K,C,F)"))
+
+"Unit Conversion-Air"
+if airunit == "F":
+  airtempfin = (airtemp - 32) / 1.8 + 273.15
+elif airunit == "C":
+  airtempfin = airtemp + 273
+elif airunit == "K":
+  airtempfin = airtemp
+else:
+  print("Not a valid unit!") 
+
+"Unit Conversion-Steam"
+if steamunit == "F":
+  steamtempfin = (steamtemp - 32) / 1.8 + 273.15
+elif steamunit == "C":
+  steamtempfin = steamtemp + 273
+elif steamunit == "K":
+  steamtempfin = steamtemp
+else:
+  print("Not a valid unit!") 
+  
+"Equation"
+efficiency = 1 - (airtempfin / steamtempfin)
+efficiencyfin = efficiency  * 100
+if steamtempfin <= 373:
+  efficiencyfin = 0
+  
+"Output"
+print("Efficiency=",efficiencyfin,"%")
